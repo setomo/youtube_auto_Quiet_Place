@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiet Place — YouTube publishing tool</title>
+<style>
+  :root { --ink:#1a1714; --dim:#5e564d; --line:#d8d0c6; --bg:#f7f5f2;
+          --card:#fff; --accent:#8a5a12 }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:16px/1.65 -apple-system,Segoe UI,Roboto,sans-serif }
+  .wrap { max-width:720px; margin:0 auto; padding:56px 20px 80px }
+  h1 { font-size:28px; margin:0 0 6px; font-weight:650 }
+  .sub { color:var(--dim); margin:0 0 36px }
+  h2 { font-size:19px; margin:34px 0 10px; font-weight:650 }
+  p, li { color:var(--ink) }
+  ul { padding-left:20px }
+  li { margin-bottom:6px }
+  .card { background:var(--card); border:1px solid var(--line);
+          border-radius:10px; padding:20px 24px; margin:20px 0 }
+  code { background:#eee9e2; padding:1px 5px; border-radius:4px;
+         font:14px ui-monospace,Consolas,monospace }
+  a { color:var(--accent) }
+  footer { margin-top:48px; padding-top:20px; border-top:1px solid var(--line);
+           color:var(--dim); font-size:14px }
+  footer a { margin-right:18px }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Quiet Place</h1>
+  <p class="sub">A personal tool for publishing videos to its operator's own
+  YouTube channel.</p>
+
+  <div class="card">
+    <p><strong>This is not a product and has no users other than its
+    operator.</strong> It is a set of command-line scripts run on one personal
+    computer. There is no hosted service, no sign-up, and no way for anyone
+    else to connect an account to it.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>It assembles short documentary videos about travel destinations in Japan
+  and uploads them to a YouTube channel owned by the person running it. The
+  steps are:</p>
+  <ul>
+    <li>Research places from public reference sources</li>
+    <li>Collect openly-licensed photographs, with their licence and credit
+      recorded</li>
+    <li>Generate narration and render a video locally</li>
+    <li>Upload it to the operator's own channel, with captions</li>
+  </ul>
+
+  <h2>Why it uses Google APIs</h2>
+  <p>Only to publish to the operator's own channel. The scopes requested, and
+  what each is for:</p>
+  <ul>
+    <li><code>youtube.upload</code> — upload the finished video</li>
+    <li><code>youtube</code> — set its title, description and privacy, and add
+      it to a playlist</li>
+    <li><code>youtube.force-ssl</code> — attach the caption track
+      (<code>captions.insert</code> requires this specifically)</li>
+    <li><code>yt-analytics.readonly</code> — read view counts for the
+      operator's own videos</li>
+  </ul>
+
+  <h2>Who can use it</h2>
+  <p>One person: the operator, on their own machine, against their own channel.
+  The OAuth client exists so that person can authorise their own account. It is
+  not offered to anyone else.</p>
+
+  <footer>
+    <a href="privacy.html">Privacy policy</a>
+    <a href="terms.html">Terms of service</a>
+    <a href="https://github.com/setomo/youtube_auto_Quiet_Place">Source</a>
+  </footer>
+
+</div>
+</body>
+</html>
